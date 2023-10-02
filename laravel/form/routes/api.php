@@ -16,3 +16,4 @@ use App\Http\Controllers\UserController;
 */
 
 route::get('example',[UserController::class,'example']);
+// Route::resource('photos.comments', CommentController::class)->shallow();

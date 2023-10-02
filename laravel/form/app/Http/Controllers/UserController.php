@@ -16,19 +16,22 @@ class UserController extends Controller
 
 public function test(Request $request){
 
-    $name = $request->name;
-    $category = $request->category;
-    $table = new Categorye;
-    $table->name = $name;
 
-    $table->remarks = $category;
+
+
+    $table = new Categorye;
+    $table->name = $request->name;
+
+    $table->remarks = $request->category;
     $save = $table->save();
+    $id = $table->id;
+
     //$id = $table->id;
    // $data = Categorye::where('id',$id)->get();
 
-   $data = DB::select('select * from  categoryes');
+   $data = DB::select('select * from  categoryes where id = ?',[$id]);
 
-    return ['data'=>$data];
+    return view('test',compact('data'));
 
 }
 

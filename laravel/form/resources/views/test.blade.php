@@ -9,13 +9,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
-<script src="assets/jquery.js"></script>
+{{-- <script src="assets/jquery.js"></script> --}}
 
 
 
 </head>
-<body>
-    <center><form style="width: 50%;" action="{{ route('test2') }}" method="post">
+
+<body >
+    <center>
+        @isset($data)
+        @foreach ($data as $datas )
+            {{ "my name is ".$datas->name }}
+
+        @endforeach
+
+        @endisset
+        <form style="width: 50%;" method="post" action="test2" >
 
 
         <div class="mb-3">
@@ -29,6 +38,9 @@
 
         <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
       </form></center>
+      <div id="mes"></div>
+
+      <button id="btn" >button</button>
 
       {{-- <table class="table">
         <thead>
@@ -65,69 +77,53 @@
 
 </body>
 
-{{-- <script>
+<script>
 
-    $(document).ready(function(){
-
-
-            $('#submit').click(function(e){
-
-                e.preventDefault();
-
-                var name = $('#name').val();
-                var category = $('#category').val();
+    // $(document).ready(function(){
 
 
-                $.ajax({
-            url:'test2',
-            type:'post',
-            data:{
-                name:name,
-                category:category
-            },
-            success:function(data){
+    //         $('#submit').click(function(e){
 
-             //console.log(data[0].category);
+    //             e.preventDefault();
+
+    //             var name = $('#name').val();
+    //             var category = $('#category').val();
 
 
-            $.each(data,function(key,value){
+    //             $.ajax({
+    //         url:'test2',
+    //         type:'post',
+    //         data:{
+    //             name:name,
+    //             category:category
+    //         },
+    //         success:function(data){
+
+    //          //console.log(data[0].category);
 
 
-               var s =  value.length;
-
-                for(var i=0;i<s ;i++){
-                    // console.log(value[i].name);
+    //         $.each(data,function(key,value){
 
 
+    //            var s =  value.length;
 
-                var row = "<tr id="+value[i].id+"><td>"+value[i].id+"</td><td>"+value[i].name+"</td><td>"+value[i].remarks+"</td><td><button id="+value[i].id+" name='edit'>edit</button></td><td><button id="+value[i].id+">delete</button></td></tr>"
-                $(' tbody').append(row);
+    //             for(var i=0;i<s ;i++){
+    //                 // console.log(value[i].name);
 
 
 
-
-                }
+    //             var row = "<tr id="+value[i].id+"><td>"+value[i].id+"</td><td>"+value[i].name+"</td><td>"+value[i].remarks+"</td><td><button id="+value[i].id+" name='edit'>edit</button></td><td><button id="+value[i].id+">delete</button></td></tr>"
+    //             $(' tbody').append(row);
 
 
 
 
-            });
+    //             }
 
 
 
 
-
-
-
-
-
-
-
-            }
-      });
-
-
-            });
+    //         });
 
 
 
@@ -139,12 +135,48 @@
 
 
 
+    //         }
+    //   });
 
-    });
+
+    //         });
 
 
 
-</script> --}}
+
+
+
+
+
+
+
+
+
+    // });
+
+//     function serverget(){
+
+// var a = new XMLHttpRequest();
+
+//         a.onreadystatechange = function(){
+
+//             if(this.readyState == 4 &&  this.status == 200 ){
+//                     document.getElementById("mes").innerHTML=this.response.Text;
+//             }
+//         };
+//         a.open("GET","testshow.blade.php",true);
+//         a.send();
+//     }
+
+
+
+// document.getElementById('submit').onclick = function(event){
+//     event.preventDefault();
+// alert("test");
+// };
+
+
+</script>
 
 
 
