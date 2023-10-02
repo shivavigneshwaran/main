@@ -65,7 +65,9 @@ export default {
 
         },
         editForm(employee){
-            console.log('editForm test',employee);
+        
+            console.log('editForm test2',employee);
+
 
         }
     }
