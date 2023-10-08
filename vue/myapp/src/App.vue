@@ -33,7 +33,7 @@ export default {
           }
         })
         const fetchData = await response.json();
-      console.log('fetchData',fetchData.postdata);
+      console.log('test',fetchData.postdata);
           this.employees = [...this.employees,fetchData.postdata];
       } catch (error) {
         console.log(error)
