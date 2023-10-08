@@ -35,8 +35,8 @@ export default {
         const fetchData = await response.json();
       console.log('test',fetchData.postdata);
           this.employees = [...this.employees,fetchData.postdata];
-      } catch (error) {
-        console.log(error)
+      } catch (err) {
+        console.log(err)
       }
 
 
