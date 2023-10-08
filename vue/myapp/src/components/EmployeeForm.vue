@@ -1,6 +1,6 @@
 <template>
     <div id="employee-form">
-        <form v-on:submit.prevent="handlesubmit">
+        <form v-on:submit.prevent="handlesubmit" >
             <div class="row mb-3">
                 <label for="first_name" class="col-sm-2 col-form-label">First</label>
                 <div class="col-sm-10">
@@ -68,7 +68,7 @@ export default {
         clearStatus(){
             this.success = false;
             this.error = false;
-            console.log('test');
+           
             
         }
     },

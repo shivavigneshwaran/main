@@ -31,8 +31,8 @@
                     </td>
                     <td v-else>{{ employee.email }}</td>
                     <td v-if="editing == employee.id">
-                        <button class="btn btn-success" @click="editForm(employee)">Save</button>
-                        <button class="btn btn-danger" @click="editing = null">Cancel</button>
+                        <button class="btn btn-success" @click="editEmployee(employee)">Save</button>
+                        <button class="btn btn-danger" @click="cancelEdit(employee)">Cancel</button>
 
                     </td>
                     <td v-else>
@@ -55,19 +55,36 @@ export default {
     data(){ 
         return {
             editing:null,
+            employee:{
+                name:'',
+                last:'',
+                email:''
+            },
+            cahedEmployee:null
         }
 
     },
     methods: {
         editMode(employee) {
             this.editing = employee.id;
-            console.log(employee);
+            console.log('editing',this.editing);
+            this.cahedEmployee = Object.assign({},employee);
+           
+           
 
         },
-        editForm(employee){
+        editEmployee(employee){
 
-            console.log('employee details 2',employee);
+            if(employee.name == '' || employee.last == '' || employee.email == ''){
+                return ;
+            }
+            this.$emit('edit:employee',employee.id,employee);
+            this.editing = null;
 
+        },
+        cancelEdit(employee){
+            this.editing = null;
+            Object.assign(employee,this.cahedEmployee);
         }
     }
 
