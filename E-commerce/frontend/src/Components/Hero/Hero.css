@@ -1,5 +1,5 @@
 .hero{
-    height: 100vh;
+    height: 600px;
     /* border: 1px solid black; */
     background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
     display: flex;
@@ -23,7 +23,7 @@
 
 .hero-left p{
     color: #171717;
-    font-size: 100px;
+    font-size: 80px;
     font-weight: 700;
 }
 
@@ -58,4 +58,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.hero-right img{
+    width: 70%;
 }

@@ -1,34 +1,35 @@
-.popular{
+.new-collections{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    height: 620px;
-    padding: 10px 120px 10px 120px;
+    height: auto;
+    padding: 10px 120px 55px 120px
 }
 
-.popular h1{
+.new-collections h1{
     color: #717171;
     font-size: 50px;
     font-weight: 600;
 }
 
-.popular hr{
+.new-collections hr{
     width: 200px;
     height: 6px;
     border-radius: 10px;
     background: #252525;
 }
 
-.poppular-item {
+.collections {
     margin-top: 50px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 30px;
 }
 
-.poppular-item .item{
+.collections .item{
     width: 285px;
 }
-.poppular-item .item img,.item p, .item-prices{
+.collections .item img,.item p, .item-prices{
     width: 95%;
 }
